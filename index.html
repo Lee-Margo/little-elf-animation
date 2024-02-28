@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin:0;
+            width: 100%;
+            height: 100vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;           
+        }
+        .container{     
+            width: 800px;
+            height: 800px;
+            position: relative;
+            
+        }
+        .elf-mouth{
+            width: calc(100px - 50px * 2);
+            height: calc(100px - 50px * 2);
+            border-radius: 50%;
+            border: 50px solid red;
+            border-right-color: transparent;
+            position: relative;
+            position: absolute;
+            animation-name: color-ball;
+            animation-duration: 10s;
+            transform: translate(-100%, -100%) rotate(0deg) ;
+            z-index: 2;
+            animation-iteration-count: infinite;  
+        }
+        @keyframes color-ball {
+            0%{
+                top: 0;
+                left: 0;
+                transform: translate(-100%, -100%) rotate(0deg);
+            }
+            24%{
+                top: 0;
+                left: 100%;
+                transform: translate(0, -100%) rotate(0deg);              
+            }           
+            25%{
+                top: 0;
+                left: 100%;
+                transform: translate(0, -100%) rotate(90deg);              
+            }           
+            49%{
+                top: 100%;
+                left: 100%;
+                transform:rotate(90deg) ;
+            }
+            50%{
+                top: 100%;
+                left: 100%;
+                transform: rotate(0deg) scaleX(-1);
+            }
+            74%{
+                top: 100%;
+                left: 0;                           
+                transform:translate(-100%, 0)  rotate(0deg) scaleX(-1) ;              
+            }
+            75%{
+                top: 100%;
+                left: 0;                           
+                transform: translate(-100%, 0) rotate(90deg) scaleX(-1) ;              
+            }
+            95%{
+                top: 0;
+                left: 0;
+                transform: translate(-100%, -100%) rotate(90deg) scaleX(-1);
+            } 
+            100%{
+                top: 0;
+                left: 0;
+                transform: translate(-100%, -100%) rotate(0deg);
+            } 
+        }
+        .elf-mouth::before{
+            width: calc(100px - 50px * 2);
+            height: calc(100px - 50px * 2);
+            content: "";
+            position:absolute;
+            border: 50px solid transparent;
+            border-radius: 50%;
+            transform:translate(-50%, -50%) rotate(0deg);
+            border-top-color: red;  
+            animation-name: mouth-bottom;
+            animation-duration: 1s;   
+            animation-iteration-count: infinite;     
+        }
+        .elf-mouth::after{
+            width: calc(100px - 50px * 2);
+            height: calc(100px - 50px * 2);
+            content: "";
+            position:absolute;
+            border: 50px solid transparent;
+            border-radius: 50%;
+            transform:translate(-50%, -50%) rotate(0deg);
+            border-bottom-color: red; 
+            animation-name: mouth-top;
+            animation-duration: 1s;    
+            animation-range-end: infinite;    
+            animation-iteration-count: infinite; 
+        }
+        @keyframes mouth-top {
+            0%{
+                transform:translate(-50%, -50%)  rotate(0deg);  
+            }
+            50%{
+                transform:translate(-50%, -50%)  rotate(-40deg);  
+            }
+            100%{
+                transform:translate(-50%, -50%)  rotate(0deg);  
+            }           
+        }
+        @keyframes mouth-bottom {
+            0%{
+                transform:translate(-50%, -50%)  rotate(0deg);  
+            }
+            50%{
+                transform:translate(-50%, -50%)  rotate(40deg);  
+            }
+            100%{
+                transform:translate(-50%, -50%)  rotate(0deg);  
+            }           
+        }
+        .elf-eye{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: black;
+            z-index: 2;
+            position: absolute;
+            bottom: 20px;
+            left: 5px;
+
+        }
+        .ball{
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            border-radius: 50%;
+            transform: translate(0, -250%);
+            position:absolute;
+            animation: ball;
+            animation-duration: 10s; 
+            animation-iteration-count: infinite;         
+        }
+        @keyframes ball {
+            0%{
+                top: 0;
+                left: 0;
+                transform: translate(0, -250%);
+            }
+            15%{
+                top: 0;
+                left: 100%;
+                transform: translate(250%, -250%) rotate(90deg);              
+            }           
+            40%{
+                top: 100%;
+                left: 100%;
+                transform: translate(250%, 250%) rotate(180deg);
+            }
+            60%{
+                top: 100%;
+                left: 0;                           
+                transform: translate(-350%, 250%) rotate(270deg) ;              
+            }
+            95%{
+                top: 0;
+                left: 0;
+                transform: translate(-350%, -250%) rotate(360deg);
+            } 
+            100%{
+                top: 0;
+                left: 0;
+                transform: translate(0, -250%) rotate(360deg);
+            } 
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+        <div class="elf-mouth">
+            <div class="elf-eye">
+        </div>
+    </div>
+</body>
+</html>
